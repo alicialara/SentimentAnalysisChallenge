@@ -112,7 +112,7 @@ Descripción de la arquitectura general de la solución.
 - Node.js 14+
 - ReactJS
 - AWS CLI / Azure CLI
-- Docker, Git
+- Docker, Git, Gitflow
 
 ## Despliegue
 
