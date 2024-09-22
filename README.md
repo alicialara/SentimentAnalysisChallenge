@@ -7,7 +7,7 @@ Descripción breve de la aplicación web de análisis de sentimiento utilizando 
 - Enlace al repositorio: [Github](https://github.com/alicialara/SentimentAnalysisChallenge)
 - Enlace al projecto en Jira: [Jira](https://sentiment-analysis-web-app.atlassian.net/jira/software/projects/SW/boards/1)
 
-![poc](docs/poc-front.png)
+![poc](docs/poc_front.png)
 
 
 ## Tabla de Contenidos
