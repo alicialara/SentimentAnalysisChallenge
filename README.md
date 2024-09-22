@@ -1,4 +1,4 @@
-# Sentiment Analysis Web App - Challenge
+# Sentiment Analysis Web App POC - Challenge
 
 ## Descripción General
 
@@ -62,31 +62,31 @@ El diagrama de secuencia muestra la interacción entre los componentes de la apl
 
 ## Arquitectura básica del sistema
 
-Descripción de la arquitectura general de la solución. 
+Descripción de la arquitectura general de la solución.
 
 - **Frontend**: ReactJS para el manejo de la interfaz del usuario.
 
-  * Tecnología: 
-    * Se utilizará el framework ReactJS para construir una interfaz de usuario interactiva y dinámica. 
+  * Tecnología:
+    * Se utilizará el framework ReactJS para construir una interfaz de usuario interactiva y dinámica.
     * Se utilizará un sistema de control de versiones como Git para el desarrollo colaborativo.
     * Se utilizará Docker para la creación de contenedores y la gestión de dependencias.
-    
-  * Funcionalidades: 
+
+  * Funcionalidades:
     * Formulario para que el usuario ingrese el texto a analizar.
     * Visualización clara de los resultados del análisis de sentimiento (positivo, negativo, neutral), posiblemente con una escala visual o numérica.
     * [Opcional] Posible inclusión de funcionalidades adicionales como historial de análisis, exportación de resultados, etc.
 
 - **Backend**: Python con Flask/FastAPI para gestionar las solicitudes del frontend.
 
-  * Tecnología: 
-    * Se empleará el lenguaje de programación Python para desarrollar la lógica de la aplicación. 
+  * Tecnología:
+    * Se empleará el lenguaje de programación Python para desarrollar la lógica de la aplicación.
     * Se utilizará un framework web como Flask o FastAPI para manejar las solicitudes HTTP y la interacción con el modelo de PLN.
     * El entorno debe ser escalable y seguro, con manejo básico AUTH y CORS.
     * Se implementará un sistema de logs para el registro de eventos y errores.
     * Se realizarán pruebas unitarias y de integración para garantizar la calidad del código.
     * Se utilizará un sistema de control de versiones como Git para el desarrollo colaborativo.
     * Se utilizará Docker para la creación de contenedores y la gestión de dependencias.
-    
+
   * Funcionalidades:
     * Recibir el texto ingresado por el usuario desde el frontend.
     * Preprocesar el texto (limpieza, tokenización, etc.) y validación básica del texto.
@@ -99,13 +99,13 @@ Descripción de la arquitectura general de la solución.
     * El modelo debe ser capaz de clasificar el texto en categorías de sentimiento (positivo, negativo, neutral).
     * Se utilizará una biblioteca de PLN como Hugging Face Transformers para cargar y utilizar el modelo.
     * Se implementará un sistema de caché para almacenar los resultados y mejorar la velocidad de respuesta.
-    
-  
+
+
 - **Despliegue**: Explicación del uso de servicios de AWS o Azure (EC2, S3, App Service, etc.).
 
   * Se realizarán pruebas de integración para garantizar la compatibilidad con el backend y el frontend.
   * Se utilizará un sistema de monitoreo para supervisar el rendimiento y la disponibilidad de la aplicación.
-    
+
 
 ## Stack Tecnológico
 - Python 3.8+

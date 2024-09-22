@@ -1,0 +1,55 @@
+/* Header.css */
+
+.Header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Header h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+.Header nav {
+  margin-top: 10px;
+  display: flex;
+  gap: 15px;
+}
+
+.Header nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: text-decoration 0.3s ease, color 0.3s ease;
+}
+
+.Header nav a:hover {
+  text-decoration: underline;
+  color: #61dafb;
+}
+
+@media (max-width: 600px) {
+  .Header {
+    padding: 15px;
+  }
+
+  .Header h1 {
+    font-size: 1.5em;
+  }
+
+  .Header nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .Header nav a {
+    font-size: 16px;
+  }
+}

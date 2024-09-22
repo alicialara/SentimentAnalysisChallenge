@@ -4,6 +4,7 @@ from backend.app.main import app
 
 client = TestClient(app)
 
+
 def test_analyze_sentiment():
     response = client.post("/analyze", json={"text": "Me encanta hacer retos de NLP!"})
     assert response.status_code == 200
@@ -12,6 +13,7 @@ def test_analyze_sentiment():
     assert "score" in result
     assert "timestamp" in result
     assert result["label"] in ["POSITIVE", "NEGATIVE"]
+
 
 def test_analyze_sentiment_no_text():
     response = client.post("/analyze", json={"text": ""})

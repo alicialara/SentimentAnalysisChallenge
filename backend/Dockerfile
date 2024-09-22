@@ -10,6 +10,10 @@ COPY requirements.txt .
 # Install the dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Set environment variables to suppress TensorFlow messages
+ENV TF_CPP_MIN_LOG_LEVEL=2
+ENV TF_ENABLE_ONEDNN_OPTS=0
+
 # Copy the rest of the application code into the container
 COPY . .
 

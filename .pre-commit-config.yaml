@@ -1,0 +1,13 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.3.0  # Reemplaza con la última versión disponible
+    hooks:
+      - id: trailing-whitespace  # Elimina espacios en blanco al final de las líneas
+      - id: end-of-file-fixer    # Asegura que los archivos terminen con una línea en blanco
+      - id: check-yaml           # Valida archivos YAML
+      - id: check-added-large-files # Verifica si estás añadiendo archivos grandes al repo
+  - repo: https://github.com/psf/black
+    rev: 23.1.0  # La versión de Black que deseas usar
+    hooks:
+      - id: black
+        language_version: python3.12  # Asegúrate de coincidir con la versión de Python de tu proyecto

@@ -27,7 +27,7 @@ pip install -r requirements.txt
 ```
 
 
-## Running the API 
+## Running the API
 
 ### locally
 
@@ -76,5 +76,5 @@ This project uses `pre-commit` to run checks before committing changes. To insta
 ```bash
 pip install pre-commit
 pre-commit install
+pre-commit run --all-files
 ```
-
