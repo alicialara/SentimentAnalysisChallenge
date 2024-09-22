@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+transformers
+pytest
+mysql-connector-python
+pre-commit

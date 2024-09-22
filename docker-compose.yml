@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  backend:
+    image: python:3.9
+    container_name: backend
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: bash -c "pip install -r requirements.txt && uvicorn main:app --host 0.0.0.0 --port 5000"
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+
+  frontend:
+    image: node:14
+    container_name: frontend
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: bash -c "npm install && npm start"
+    ports:
+      - "3000:3000"
+
+  db:
+    image: mysql:8
+    container_name: db
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
