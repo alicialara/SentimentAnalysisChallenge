@@ -7,6 +7,14 @@ router = APIRouter()
 
 @router.post("/analyze")
 async def analyze_sentiment_route(request: TextRequest):
+    """
+    Analyze the sentiment of the provided text.
+    Args:
+        request:
+
+    Returns:
+
+    """
     return await analyze_sentiment(request)
 
 

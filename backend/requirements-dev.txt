@@ -2,5 +2,9 @@ fastapi
 uvicorn
 transformers
 pytest
-mysql-connector-python
+python-dotenv
+tensorflow
+tf-keras
 pre-commit
+pytest
+httpx

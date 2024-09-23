@@ -113,32 +113,46 @@ Descripción de la arquitectura general de la solución.
 - AWS CLI / Azure CLI
 - Docker, Git, Gitflow
 
+--> Uso de Gitflow
+--> Documentación de código: Sphinx
+
 ## Despliegue
 
-Pasos para el despliegue de la aplicación web en AWS o Azure.
+Pasos para el despliegue de la aplicación web en AWS:
+
+1. Docker build, tag, push a ECR
+
+docker build -t "" . (back y front)
+
+docker tag sentiment-analysis-frontend [id_proyecto].dkr.ecr.us-east-1.amazonaws.com/sentimentanalysispoc:latest
+docker tag sentiment-analysis-api [id_proyecto].dkr.ecr.us-east-1.amazonaws.com/sentimentbackend:latest
+
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin [id_proyecto].dkr.ecr.us-east-1.amazonaws.com
+
+docker push [id_proyecto].dkr.ecr.us-east-1.amazonaws.com/sentimentanalysispoc:latest
+docker push [id_proyecto].dkr.ecr.us-east-1.amazonaws.com/sentimentbackend:latest
+
+Y nos devuelven las imágenes:
+
+[id_proyecto].dkr.ecr.us-east-1.amazonaws.com/sentimentanalysispoc
+[id_proyecto].dkr.ecr.us-east-1.amazonaws.com/sentimentbackend
 
 
-1. **Clonar el repositorio**:
-   - Ejecutar 'git clone URL' para obtener una copia local del código fuente.
-2. **Configurar el backend**:
-   - Navegar al directorio del backend: 'cd backend'.
-   - Crear un entorno virtual: 'python -m venv venv'.
-   - Activar el entorno virtual: 'source venv/bin/activate' (Linux) o 'venv\Scripts\activate' (Windows).
-   - Instalar las dependencias: 'pip install -r requirements.txt'.
-   - Configurar las variables de entorno necesarias.
-3. **Configurar el frontend**:
-   - Navegar al directorio del frontend: 'cd frontend'.
-   - Instalar las dependencias: 'npm install'.
-   - Configurar las variables de entorno necesarias.
-4. **Crear y subir las imágenes Docker**:
-   - Crear una imagen Docker para el backend y el frontend utilizando los 'Dockerfile' correspondientes.
-   - Subir las imágenes a un registro de contenedores (ECR para AWS o ACR para Azure).
-5. **Desplegar la aplicación**:
-   - Configurar los servicios de AWS (ECS, ECR, RDS) o Azure (App Service, ACR, SQL Database).
-   - Desplegar las imágenes Docker en los servicios configurados.
-6. **Acceder a la aplicación**:
-   - Obtener la URL del servicio desplegado.
-   - Acceder a la aplicación web a través del navegador.
-7. **Finalizar el despliegue**:
-   - Verificar que todos los servicios estén funcionando correctamente.
-   - Realizar pruebas de funcionalidad y rendimiento.
+2. Crear un clúster de ECS - Fargate (Serverless)
+
+- Crear familia de permisos para asignar los contenedores
+- Crear servicio en cluster ECS para desplegar back y front
+- CloudFormation (similar a cloud build)
+- CloudWatch (similar a cloud logging)
+
+ECR - Container registry
+ECS - Container service (Cloud Run / Compute engine)
+	Fargate -> Cloud Run
+	Family registry -> ECS > ECR
+
+3. Crear un balanceador de carga
+4. Crear un dominio en Route 53
+5. Crear un certificado SSL en ACM
+6. Asignar el certificado al dominio
+7. Crear un grupo de seguridad para el balanceador de carga
+8. Crear un grupo de seguridad para los contenedores

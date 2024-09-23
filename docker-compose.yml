@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   backend:
     image: python:3.9
@@ -10,9 +8,6 @@ services:
     command: bash -c "pip install --no-cache-dir -r requirements.txt && uvicorn app.main:app --host 0.0.0.0 --port 5000"
     ports:
       - "5000:5000"
-#    depends_on:
-#      - db
-
   frontend:
     image: node:14
     container_name: sentiment-analysis-frontend
@@ -22,14 +17,3 @@ services:
     command: bash -c "npm install && npm start"
     ports:
       - "3001:3000"
-
-#  db:
-#    image: mysql:8
-#    container_name: db
-#    environment:
-#      MYSQL_ROOT_PASSWORD: rootpassword
-#      MYSQL_DATABASE: mydatabase
-#      MYSQL_USER: user
-#      MYSQL_PASSWORD: password
-#    ports:
-#      - "3306:3306"

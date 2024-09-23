@@ -3,7 +3,6 @@ from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from .services import analyze_text
 
-# from .utils import get_db_connection
 
 app = FastAPI()
 
@@ -16,10 +15,6 @@ app.add_middleware(
     allow_headers=["*"],  # Allows all headers
 )
 
-# @app.on_event("startup")
-# async def startup_event():
-#     create_sentiment_table()
-
 
 class TextRequest(BaseModel):
     text: str
@@ -27,21 +22,21 @@ class TextRequest(BaseModel):
 
 @app.post("/analyze")
 async def analyze_sentiment(request: TextRequest):
+    """
+    Analyze the sentiment of the provided text.
+
+    Args:
+        request (TextRequest): The request object containing the text to be analyzed.
+
+    Returns:
+        dict: A dictionary containing the sentiment analysis results.
+    """
     text = request.text
     if not text:
         raise HTTPException(status_code=400, detail="No text provided")
 
     # Analyze the text
     result = analyze_text(text)
-
-    # # Store the result in the database
-    # conn = get_db_connection()
-    # cur = conn.cursor()
-    # cur.execute("INSERT INTO sentiment_results (text, label, score) VALUES (%s, %s, %s)",
-    #             (text, result['label'], result['score']))
-    # conn.commit()
-    # cur.close()
-    # conn.close()
 
     return result
 
