@@ -156,3 +156,10 @@ ECS - Container service (Cloud Run / Compute engine)
 6. Asignar el certificado al dominio
 7. Crear un grupo de seguridad para el balanceador de carga
 8. Crear un grupo de seguridad para los contenedores
+
+
+Además añado deploy con AWS CodeDeploy para desplegar la aplicación en un entorno de producción .
+
+## Plan de pruebas automatizadas
+
+Añado workflows de Github Actions para ejecutar pruebas unitarias y de integración en cada push a la rama principal.
