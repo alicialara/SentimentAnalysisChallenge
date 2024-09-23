@@ -4,11 +4,10 @@
 
 Descripción breve de la aplicación web de análisis de sentimiento utilizando NLP. Se detalla el uso de backend en Python, frontend en ReactJS y el despliegue en AWS o Azure.
 
-- Enlace a la aplicación web: Pendiente
-- Enlace al repositorio: Pendiente
-- Enlace a la documentación: Pendiente
+- Enlace al repositorio: [Github](https://github.com/alicialara/SentimentAnalysisChallenge)
 - Enlace al projecto en Jira: [Jira](https://sentiment-analysis-web-app.atlassian.net/jira/software/projects/SW/boards/1)
 
+![poc](docs/poc_front.png)
 
 
 ## Tabla de Contenidos
@@ -112,7 +111,7 @@ Descripción de la arquitectura general de la solución.
 - Node.js 14+
 - ReactJS
 - AWS CLI / Azure CLI
-- Docker, Git
+- Docker, Git, Gitflow
 
 ## Despliegue
 
