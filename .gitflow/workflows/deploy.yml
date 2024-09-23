@@ -45,9 +45,10 @@ jobs:
       env:
         AWS_REGION: us-west-2
         ECS_CLUSTER: your-ecs-cluster
-        ECS_SERVICE: your-ecs-service
+        BACKEND_SERVICE: backend-service
+        FRONTEND_SERVICE: frontend-service
         BACKEND_IMAGE: ${{ steps.login-ecr.outputs.registry }}/backend-repo:${{ github.sha }}
         FRONTEND_IMAGE: ${{ steps.login-ecr.outputs.registry }}/frontend-repo:${{ github.sha }}
       run: |
-        aws ecs update-service --cluster $ECS_CLUSTER --service backend-service --force-new-deployment --region $AWS_REGION
-        aws ecs update-service --cluster $ECS_CLUSTER --service frontend-service --force-new-deployment --region $AWS_REGION
+        aws ecs update-service --cluster $ECS_CLUSTER --service $BACKEND_SERVICE --force-new-deployment --region $AWS_REGION
+        aws ecs update-service --cluster $ECS_CLUSTER --service $FRONTEND_SERVICE --force-new-deployment --region $AWS_REGION
