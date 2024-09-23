@@ -114,7 +114,7 @@ Descripción de la arquitectura general de la solución.
 - Docker, Git, Gitflow
 
 --> Uso de Gitflow
---> Documentación de código: Sphinx
+
 
 ## Despliegue
 
